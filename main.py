@@ -51,8 +51,10 @@ def get_response(intents_list):
     if intents_list:
         tag = intents_list[0]['intent']
         for intent in intents['intents']:
-            if intent['tag'] == tag:
-                return random.choice(intent['responses'])
+            if intent['tags'] == tag:
+                # If responses is a string, return it; if it's a list, choose randomly
+                responses = intent['responses']
+                return responses if isinstance(responses, str) else random.choice(responses)
     return "Sorry, I didn't understand that."
 
 # Streamlit interface
