@@ -13,6 +13,7 @@ try:
 except LookupError:
     nltk.download('punkt')
 nltk.download('wordnet')
+nltk.download('punkt_tab')
 
 
 # Load files
