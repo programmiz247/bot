@@ -6,9 +6,14 @@ import numpy as np
 import tensorflow as tf
 import nltk
 from nltk.stem import WordNetLemmatizer
+from nltk.data import find
 
-nltk.download('punkt')
+try:
+    find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 nltk.download('wordnet')
+
 
 # Load files
 model = tf.keras.models.load_model("chatbotmodel.h5")
